@@ -7,7 +7,7 @@
 
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
 
@@ -43,10 +43,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -122,8 +122,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-#bindsym $mod+Shift+l exec /home/fernandezd/.i3/timeout_lock.sh	
-#bindsym $mod+Shift+l exec xautolock -nlocknow
 bindsym $mod+Shift+l exec gnome-screensaver-command --lock
 
 # resize window (you can also use the mouse for that)
@@ -156,25 +154,21 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        tray_output primary
 }
+# Displays Config
+workspace 1 output HDMI-1 
+workspace 3 output HDMI-1
+workspace 5 output HDMI-1
+workspace 7 output HDMI-1
+workspace 9 output HDMI-1
+workspace 2 output eDP-1
+workspace 4 output eDP-1 
+workspace 6 output eDP-1
+workspace 8 output eDP-1
+workspace 10  output eDP-1 
 
-#Displays config
-exec --no-startup-id /home/fernandezd/.screenlayout/office.sh
-workspace 1 output HDMI1
-workspace 3 output HDMI1
-workspace 2 output DP1-3
-workspace 4 output DP1-3
-workspace 10 output eDP1
 
-#Use GNOME NetworkManager
+# Use GNMOE NetworkManager
+
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id nm-applet
-
-#Lock screen after a while
-#exec xautolock -time 2 -locker '~/.i3/timeout_lock.sh' 
-#exec xautolock -time 2 -locker "gnome-screensaver-command --lock"
-
-exec --no-startup-id feh --bg-scale ~/Pictures/CGI_Wallpaper_Global_Ice_ENG_5-4_Full.jpeg
-
-#exec --no-startup-id conky
