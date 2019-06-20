@@ -160,11 +160,11 @@ workspace 1 output HDMI-1
 workspace 3 output HDMI-1
 workspace 5 output HDMI-1
 workspace 7 output HDMI-1
-workspace 9 output HDMI-1
-workspace 2 output eDP-1
-workspace 4 output eDP-1 
-workspace 6 output eDP-1
-workspace 8 output eDP-1
+workspace 9 output eDP-1
+workspace 2 output DP-2
+workspace 4 output DP-2 
+workspace 6 output DP-2
+workspace 8 output DP-2
 workspace 10  output eDP-1 
 
 
@@ -172,3 +172,25 @@ workspace 10  output eDP-1
 
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id nm-applet
+
+# Set monitors to office setup
+exec_always --no-startup-id ~/.screenlayout/office.sh
+
+
+
+#bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.png' -e 'mv $f ~/Pictures/'
+bindsym Print exec gnome-screenshot -i 
+
+# ALSA Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set 'Master' 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set 'Master' 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master toggle
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause 
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+# Open Spotify
+bindsym XF86Tools exec spotify
